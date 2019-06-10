@@ -135,3 +135,20 @@ function factors(n, arr=[])
 
 console.log(factors(6));
 
+
+
+// 12 
+function binaryRep(num) {
+    if (num <= 0) {
+        return ''
+    }
+    const binary = Math.floor(num % 2)
+    return binaryRep(Math.floor(num / 2)) + binary
+}
+
+binaryRep(25){
+    binary = 1
+    binaryRep(12) + 1
+}
+binary = 0
+binaryRep(6) + 0
