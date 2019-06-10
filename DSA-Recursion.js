@@ -32,4 +32,23 @@ function powerCalculator(num, exponent, product='')
    
 }
 
-console.log(powerCalculator(2, 10))
+console.log(powerCalculator(2, 10))function reverseStr(str)
+{
+  if (str==='')
+    return '';
+    
+  return str[str.length -1]+reverseStr(str.substring(0, str.length - 1)); 
+   
+}
+console.log(reverseStr('hello'))
+
+
+function reverseStr(str)
+{
+  if (str==='')
+    return '';
+    
+  return str[str.length -1]+reverseStr(str.substring(0, str.length - 1)); 
+   
+}
+console.log(reverseStr('hello'))
