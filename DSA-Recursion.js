@@ -12,3 +12,24 @@ function countingSheep(num){
 }
 
 countingSheep(3);
+
+
+function powerCalculator(num, exponent, product='')
+{
+  
+  if (exponent < 0)
+    return 'exponent should be => 0';
+  
+  if (exponent === 1)
+    return num;
+    
+  if (product==='')
+    product=num;
+    
+  
+  
+  return powerCalculator(num*product, exponent-1, product);
+   
+}
+
+console.log(powerCalculator(2, 10))
