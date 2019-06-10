@@ -85,3 +85,24 @@ function splitter(str, separator)
 }
 
 console.log(splitter('02/20/2020', '/'));
+
+
+function fib(n, last='', lastlast='', acc='')
+{
+  
+  if (n<1)
+    return;
+    
+  acc++;
+  
+  if (acc===n+1)
+    return last+lastlast;
+    
+  if(acc===1)
+    return fib(n, 0, 1, acc)
+
+  return fib(n, (last+lastlast), last, acc)
+    
+}
+
+console.log(fib(7));
