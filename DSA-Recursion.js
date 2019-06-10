@@ -152,3 +152,140 @@ binaryRep(25){
 }
 binary = 0
 binaryRep(6) + 0
+
+// maze 
+
+
+function solveMaze (mySmallMaze, solutions='', current='', branches='', solved='')
+{  
+ if (solved === 1)
+    return solutions;
+  console.log('hi')
+  
+  tempMaze = mySmallMaze;
+  if (current)
+  {
+    let pastmoves = current.split("");
+  }
+  currentsquare= [0,0]
+  
+  if (pastmoves.length > 0)
+  {
+    tempMaze[1,1]="*"
+    
+    pastmoves.map(moves => {
+      if (moves == 'R')
+        currentsquare[0]++;
+      if (moves == 'L')
+        currentsquare[0]--;      
+      if (moves == 'U')
+        currentsquare[1]++;
+      if (moves == 'D')
+        currentsquare[1]--;
+    });
+  }
+  
+  let moved = 0;
+  let solved = 0;
+  
+  if (currentsquare[0]<2 ){
+    if (tempMaze[currentsquare[0]+1, currentsquare[1]]!='*')
+    {
+        if (tempMaze[currentsquare[0]+1, currentsquare[1]]==='e')
+        {
+          solved = 1;
+          solutions.push(current+"R");
+        }
+        poss++
+        if (moved ===0)
+        {
+          current = current+"R";
+          moved = 1;
+        }
+    }
+  }
+  
+  if (currentsquare[0]>1){
+    if (tempMaze[currentsquare[0]-1, currentsquare[1]]!='*')
+    {
+      
+        if (tempMaze[currentsquare[0]-1, currentsquare[1]]==='e')
+        {
+          solved = 1;
+          solutions.push(current+"L");
+        }
+        poss++
+        if (moved ===0)
+        {
+          current = current+"L";
+          moved = 1;
+        }
+    } 
+  }
+    
+  if (currentsquare[1]>1 ){
+    if (tempMaze[currentsquare[0], currentsquare[1]-1]!='*')
+    {
+            
+        if (tempMaze[currentsquare[0], currentsquare[1]-1]==='e')
+        {
+          solved = 1;
+          solutions.push(current+"U");
+        }
+       poss++
+        if (moved ===0)
+        {
+          current = current+"U";
+          moved = 1;
+        }
+    }
+  }
+    
+    
+    if (currentsquare[1]<2 ){
+      if (tempMaze[currentsquare[0], currentsquare[1]+1]!='*')
+      {
+          if (tempMaze[currentsquare[0], currentsquare[1]+1]==='e')
+          {
+            solved = 1;
+            solutions.push(current+"D");
+          }
+          poss++
+          if (moved ===0)
+          {
+            current = current+"D";
+            moved = 1;
+          }
+      }
+    }
+    
+    if (poss === 0 || solved === 1)
+    {
+      // no legal moves
+      if (branches.length===0)
+      {
+        solved = 1;
+        
+      }
+    }
+    
+    if (poss>1)
+    {
+      branches = current.substring(0, current.length-1)
+    }
+    
+    
+//    return solveMaze(mySmallMaze, solutions, current, branches, solved)
+    
+}
+let mySmallMaze = [
+    [' ', ' ', ' '],
+    [' ', '*', ' '],
+    [' ', ' ', 'e']
+];
+
+
+console.log('hi')
+solveMaze(mySmallMaze);
+
+console.log(solveMaze)
