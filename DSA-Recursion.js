@@ -52,3 +52,18 @@ function reverseStr(str)
    
 }
 console.log(reverseStr('hello'))
+
+
+function triangle(n, value=0, acc=0)
+{
+   acc++;
+
+  if (acc===n+1)
+    return value;
+  
+  value=value+(acc);
+ 
+  return triangle(n, value, acc)
+   
+}
+console.log(triangle(5))
