@@ -106,3 +106,32 @@ function fib(n, last='', lastlast='', acc='')
 }
 
 console.log(fib(7));
+
+
+// thinl this solution is suboptimal
+
+function factors(n, arr=[])
+{
+  
+  var i;
+  for (i=2; i<=n; i++)
+  {
+     if (n%i === 0)
+     {
+       if (!arr.includes(i))
+        arr.push(i);
+       factors(n/i, arr);
+     }
+     
+     console.log(i)
+     
+  
+  }
+  
+  if (!arr.includes(1))
+      arr.push(1);
+  return arr;
+}
+
+console.log(factors(6));
+
