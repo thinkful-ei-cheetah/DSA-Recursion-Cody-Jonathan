@@ -67,3 +67,21 @@ function triangle(n, value=0, acc=0)
    
 }
 console.log(triangle(5))
+
+
+function splitter(str, separator)
+{
+  if (!str.substring(0, 1))
+    return '';
+    
+  if (str.substring(0, 1) != separator)
+  {
+    return str.substring(0, 1)+splitter(str.substring(1, str.length), separator)
+  } else
+  {
+    return splitter(str.substring(1, str.length), separator)
+  }
+  return 
+}
+
+console.log(splitter('02/20/2020', '/'));
